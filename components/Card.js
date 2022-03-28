@@ -1,8 +1,15 @@
 import Image from "next/image"
+import { useAppContext } from "../context/AppContext"
+
 
 const Card = () => {
+  const {state, dispatch} = useAppContext();
   return (
     <div className="mt-8 font-body">
+      <h4>
+        {state.number}
+      </h4>
+      <button className="btn" onClick={() => dispatch({type: "ADD_NUMBER", value: 3})}>Add number</button>
         {/* card goes here */}
             <div className="card hover:shadow-lg">
             <Image
